@@ -2,3 +2,27 @@
 
 npm uninstall create-react-app -g
 npm install create-react-app -g
+
+2. cd client 
+
+3. npm i react-router-dom 
+
+4. BrowerRouter index.jsx
+
+5. App.jsx Rooutes Route ->   <Route path="/" element={<Home />} />
+
+6. components ....  home.jsx home.jsx, App.js 
+
+7. Home.jsx 
+function Home(){
+    return(
+        <div></div>
+    )
+} 
+
+export default Home; 
+import Home from './'
+
+export.module ={Home, Login}
+
+import {Home} from './'
