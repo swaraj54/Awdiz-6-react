@@ -8,6 +8,7 @@ import EffectOne from './components/03-03/EffectOne';
 import EffectTwo from './components/03-03/EffectTwo';
 import EffectThree from './components/03-03/EffectThree';
 import EffectFour from './components/03-03/EffectFour';
+import Register from './components/06-03/Register';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/effect-2' element={<EffectTwo />} />
         <Route path='/effect-3' element={<EffectThree />} />
         <Route path='/effect-4' element={<EffectFour />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
   );
