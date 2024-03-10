@@ -12,10 +12,23 @@ import Register from './components/06-03/Register';
 import UseReducer from './components/09-03/UseReducer';
 import PropsDrilling from './components/09-03/PropsDrilling';
 import { useState } from 'react';
+import AllProducts from './components/10-03/AllProducts';
+import FakeStoreAllProducts from './components/10-03/FakeStoreAllProducts';
 
 function App() {
   const [students, setStudents] = useState(["a", 'b', 'c', 'd'])
   const [counter, setCounter] = useState(1234)
+  const [products, setProducts] = useState([
+    { name: "Tshirt", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg", },
+    { name: "Jeans", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+    { name: " cap", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+    { name: "Tshirt", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg", },
+    { name: "Jeans", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+    { name: " cap", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+    { name: "Tshirt", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg", },
+    { name: "Jeans", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+    { name: " cap", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg" },
+  ])
   return (
     <div className="App">
       <Routes>
@@ -31,6 +44,8 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/use-reducer' element={<UseReducer />} />
         <Route path='/props-drilling' element={<PropsDrilling counter={counter} students={students} />} />
+        <Route path='/all-products' element={<AllProducts awdiz={products} />} />
+        <Route path='/fake-all-products' element={<FakeStoreAllProducts />} />
       </Routes>
     </div>
   );
