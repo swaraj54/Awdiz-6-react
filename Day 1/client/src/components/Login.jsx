@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext";
 
 function Login() {
+
+    const { LOGIN } = useContext(AuthContext)
 
     const router = useNavigate()
 
     const [userData, setUserData] = useState({ email: "", password: "" })
     // userData.name
     // userData[name]
-    console.log(userData, "userData")
 
     function handleChange(event) {
         // console.log(event.target.value, event.target.name)
@@ -22,9 +24,11 @@ function Login() {
             // await calling backend one server to another server request, backend validation, data to store mongodb
             try {
                 // const response = await axios.post('http://localhost:8080/login', { userData })
-                const response = { data: { success: true, message: "Login Sucessfull." } }
+                const response = { data: { success: true, message: "Login Sucessfull.", token: "abcdefghi", userData: { name: 'Awdiz', email: "awdiz@gmail.com" } } }
                 // return res.status(201).json({ success: true, message: "Registeration Completed." })
                 if (response.data.success) {
+                    localStorage.setItem("token", JSON.stringify(response.data.token))
+                    LOGIN(response.data.userData)
                     setUserData({ email: "", password: "" })
                     toast.success(response.data.message)
                     router('/')
