@@ -15,6 +15,10 @@ import { useState } from 'react';
 import AllProducts from './components/10-03/AllProducts';
 import FakeStoreAllProducts from './components/10-03/FakeStoreAllProducts';
 import Todo from './components/115-03/Todo';
+import Navbar from './components/global/Navbar';
+import NotFound from './components/global/NotFound';
+import FakeStoreSingleProducts from './components/16-03/FakeStoreSingleProducts';
+import Render from './components/16-03/Render';
 
 function App() {
   const [students, setStudents] = useState(["a", 'b', 'c', 'd'])
@@ -32,7 +36,10 @@ function App() {
   ])
   return (
     <div className="App">
+      {/* <Navbar /> */}
       <Routes>
+
+        <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         {/* Write a route for register */}
@@ -47,10 +54,17 @@ function App() {
         <Route path='/props-drilling' element={<PropsDrilling counter={counter} students={students} />} />
         <Route path='/all-products' element={<AllProducts awdiz={products} />} />
         <Route path='/fake-all-products' element={<FakeStoreAllProducts />} />
+        <Route path='/fake-single-product/:id' element={<FakeStoreSingleProducts />} />
         <Route path='/todo' element={<Todo />} />
+        <Route path='/render' element={<Render />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+// Params
+// https://myntra.com/mens/12345/true/black/tshirt
+// Query
+// https://myntra.com/mens?color=red&material=cotton

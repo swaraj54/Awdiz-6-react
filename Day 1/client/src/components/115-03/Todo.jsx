@@ -25,6 +25,7 @@ const Todo = () => {
                 <h2>Your Todos :</h2>
                 {todos.map((todo, i) => (
                     <p>{i + 1}. {todo}</p>
+                    
                 ))}
             </div> : <h1>No todos found.</h1>}
         </div>
