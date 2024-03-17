@@ -19,6 +19,7 @@ import Navbar from './components/global/Navbar';
 import NotFound from './components/global/NotFound';
 import FakeStoreSingleProducts from './components/16-03/FakeStoreSingleProducts';
 import Render from './components/16-03/Render';
+import CurrencyConverter from './components/17-03/CurrencyConverter';
 
 function App() {
   const [students, setStudents] = useState(["a", 'b', 'c', 'd'])
@@ -57,7 +58,9 @@ function App() {
         <Route path='/fake-single-product/:id' element={<FakeStoreSingleProducts />} />
         <Route path='/todo' element={<Todo />} />
         <Route path='/render' element={<Render />} />
+        <Route path='/converter' element={<CurrencyConverter />} />
       </Routes>
+
     </div>
   );
 }

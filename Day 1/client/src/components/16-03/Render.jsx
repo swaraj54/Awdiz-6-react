@@ -10,8 +10,6 @@ const Render = () => {
         setCounter(counter + 1)
     }
 
-
-
     return (
         <div>
             <h1>counter - {counter}</h1>

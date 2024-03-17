@@ -8,7 +8,7 @@ const FakeStoreSingleProducts = () => {
 
     async function getSingleProductData() {
         try {
-            const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
+            const response = await axios.get(`https://fakestoreapi.com/products/${id}`) // 1 2 3 4
             setProductData(response.data)
         } catch (error) {
             console.log(error)
