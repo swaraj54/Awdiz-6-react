@@ -7,16 +7,17 @@ const CurrencyConverter = () => {
     const [selectedCurrencies, setSelectedCurrencies] = useState({ first: "", second: "" })
     const [convertedAmount, setConvertedAmount] = useState(null)
     // console.log(selectedCurrencies, "selectedCurrencies")
-    const options = {
-        method: 'GET',
-        url: 'https://currency-exchange.p.rapidapi.com/listquotes',
-        headers: {
-            'X-RapidAPI-Key': 'd4584fc53amshc3b26f4e59b237fp195eeajsnd3a4644cf75f',
-            'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
-        }
-    };
+
 
     async function getCurrencies() {
+        const options = {
+            method: 'GET',
+            url: 'https://currency-exchange.p.rapidapi.com/listquotes',
+            headers: {
+                'X-RapidAPI-Key': 'd4584fc53amshc3b26f4e59b237fp195eeajsnd3a4644cf75f',
+                'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
+            }
+        };
         try {
             const response = await axios.request(options);
             setCurrencies(response.data);
