@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 const CounterRedux = () => {
 
     const dispatch = useDispatch();
+    
     const counter = useSelector((state) => state.counter.counter) // state == store
 
     return (

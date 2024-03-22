@@ -21,6 +21,7 @@ import FakeStoreSingleProducts from './components/16-03/FakeStoreSingleProducts'
 import Render from './components/16-03/Render';
 import CurrencyConverter from './components/17-03/CurrencyConverter';
 import CounterRedux from './components/20-03/CounterRedux';
+import UseMemo from './components/22-03/UseMemo';
 
 function App() {
   const [students, setStudents] = useState(["a", 'b', 'c', 'd'])
@@ -61,6 +62,7 @@ function App() {
         <Route path='/render' element={<Render />} />
         <Route path='/converter' element={<CurrencyConverter />} />
         <Route path='/counter-redux' element={<CounterRedux />} />
+        <Route path='/use-memo' element={<UseMemo />} />
       </Routes>
 
     </div>
