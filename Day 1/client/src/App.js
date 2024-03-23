@@ -22,6 +22,7 @@ import Render from './components/16-03/Render';
 import CurrencyConverter from './components/17-03/CurrencyConverter';
 import CounterRedux from './components/20-03/CounterRedux';
 import UseMemo from './components/22-03/UseMemo';
+import UseCallback from './components/23-03-/UseCallback';
 
 function App() {
   const [students, setStudents] = useState(["a", 'b', 'c', 'd'])
@@ -63,6 +64,7 @@ function App() {
         <Route path='/converter' element={<CurrencyConverter />} />
         <Route path='/counter-redux' element={<CounterRedux />} />
         <Route path='/use-memo' element={<UseMemo />} />
+        <Route path='/use-callback' element={<UseCallback />} />
       </Routes>
 
     </div>
