@@ -46,7 +46,7 @@ function Login() {
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>Email : </label><br />
-                <input type="email" name="email" value={userData.email} onChange={handleChange} required /><br />
+                <input style={{ border: '1px solid red' }} type="email" name="email" value={userData.email} onChange={handleChange} required /><br />
                 <label>Password : </label><br />
                 <input type="password" name="password" value={userData.password} onChange={handleChange} required /><br />
                 <input type="submit" value="Login" />

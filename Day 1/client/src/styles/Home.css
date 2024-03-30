@@ -1,0 +1,68 @@
+#body {
+    border: 2px solid blue;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+#body-nav {
+    height: 140px;
+    border: 2px solid blue;
+    padding: 30px;
+}
+
+#body-body {
+    border: 2px solid red;
+    display: flex;
+    /* padding: 30px; */
+}
+
+#body-body-filters {
+    width: 10%;
+    /* padding: 30px; */
+    /* border: 2px solid purple; */
+}
+
+.p-30 {
+    padding: 20px;
+}
+
+#body-body-products {
+    width: 90%;
+    /* border: 2px solid purple; */
+    ;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.b-black {
+    border: 2px solid black;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.pl-20 {
+    padding-left: 20px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-60 {
+    width: 64%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+.px-10 {
+    padding: 0px 10px;
+}

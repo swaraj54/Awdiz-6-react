@@ -42,11 +42,9 @@ function App() {
     <div className="App">
       {/* <Navbar /> */}
       <Routes>
-
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
-        {/* Write a route for register */}
         <Route path='/counter' element={<Counter />} />
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/effect-1' element={<EffectOne />} />
