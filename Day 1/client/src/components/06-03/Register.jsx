@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +22,8 @@ function Register() {
         if (userData.name && userData.email && userData.password && userData.confirmPassword) {
             // await calling backend one server to another server request, backend validation, data to store mongodb
             try {
-                // const response = await axios.post('http://localhost:8080/login', { userData })
-                const response = { data: { success: true, message: "Registeration Completed." } }
+                const response = await axios.post('http://localhost:3001/api/v1/auth/register', { userData })
+                // const response = { data: { success: true, message: "Registeration Completed." } }
                 // return res.status(201).json({ success: true, message: "Registeration Completed." })
                 if (response.data.success) {
                     setUserData({ name: "", email: "", password: "", confirmPassword: "" })
