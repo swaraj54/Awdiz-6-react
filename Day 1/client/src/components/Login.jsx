@@ -35,6 +35,7 @@ function Login() {
           LOGIN(response.data.userData);
           setUserData({ email: "", password: "" });
           toast.success(response.data.message);
+          // if conext lasturl if{}    else { '/}
           router("/");
         }
       } catch (error) {

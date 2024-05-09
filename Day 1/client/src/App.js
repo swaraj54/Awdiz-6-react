@@ -25,6 +25,7 @@ import UseMemo from "./components/22-03/UseMemo";
 import UseCallback from "./components/23-03-/UseCallback";
 import Navbar2 from "./components/Navbar2";
 import PropFilter from "./components/PropFilter";
+import AddProduct from "./components/09-05/AddProduct";
 
 function App() {
   const [allProducts, setAllProducts] = useState([]); // to just get products 20 -> 20
@@ -136,6 +137,9 @@ function App() {
             />
           }
         />
+        <Route path='/add-product' element={<AddProduct />} />
+        {/* create a new route to fetch all product  */}
+        {/* create a new route to fetch all product related to current user  */}
       </Routes>
     </div>
   );

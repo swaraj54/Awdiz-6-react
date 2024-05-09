@@ -44,9 +44,9 @@ const AuthContextComponent = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
   return (
     <AuthContext.Provider value={{ state, LOGIN, LOGOUT }}>
