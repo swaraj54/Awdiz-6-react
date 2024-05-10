@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import axios from "axios";
+import api from "../AxiosConfig";
 
 function Login() {
   const { LOGIN } = useContext(AuthContext);
@@ -23,11 +24,7 @@ function Login() {
     if (userData.email && userData.password) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await axios.post(
-          "http://localhost:3001/api/v1/auth/login",
-          { userData },
-          { withCredentials: true }
-        );
+        const response = await api.post("/login", { userData });
         // const response = { data: { success: true, message: "Login Sucessfull.", token: "abcdefghi", userData: { name: 'Awdiz', email: "awdiz@gmail.com" } } }
         // return res.status(201).json({ success: true, message: "Registeration Completed." })
         if (response.data.success) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../../AxiosConfig";
 
 const FakeStoreAllProducts = () => {
   const [allProducts, setAllProducts] = useState([]); // to just get products 20 -> 20
@@ -15,7 +16,7 @@ const FakeStoreAllProducts = () => {
     // api call
     // alert("Jiii")
     try {
-      const response = await axios.get("https://fakestoreapi.com/products");
+      const response = await api.get("/products");
       // console.log(response, "response from fakestore api")
       if (response?.data.length) {
         setAllProducts(response.data);
@@ -37,7 +38,8 @@ const FakeStoreAllProducts = () => {
 
     let userword = event.target.value.toLowerCase();
 
-    const filteredProduts = allProducts.filter((product) => { // 20 -> men
+    const filteredProduts = allProducts.filter((product) => {
+      // 20 -> men
       // 20 -> 4 -> 4 result show
       return product.title.toLowerCase().includes(userword);
     });
