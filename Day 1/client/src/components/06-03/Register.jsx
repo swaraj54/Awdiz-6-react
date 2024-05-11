@@ -12,6 +12,7 @@ function Register() {
     email: "",
     password: "",
     confirmPassword: "",
+    role: "buyer",
   });
   // userData.name
   // userData[name]
@@ -20,6 +21,10 @@ function Register() {
   function handleChange(event) {
     // console.log(event.target.value, event.target.name)
     setUserData({ ...userData, [event.target.name]: event.target.value });
+  }
+
+  function handleSelect(event) {
+    setUserData({ ...userData, ["role"]: event.target.value });
   }
 
   async function handleSubmit(event) {
@@ -32,7 +37,7 @@ function Register() {
     ) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await api.post("/register", {
+        const response = await api.post("/api/v1/user/register", {
           userData,
         });
         // const response = { data: { success: true, message: "Registeration Completed." } }
@@ -43,6 +48,7 @@ function Register() {
             email: "",
             password: "",
             confirmPassword: "",
+            role: "buyer",
           });
           toast.success(response.data.message);
           router("/login");
@@ -98,6 +104,11 @@ function Register() {
           onChange={handleChange}
           required
         />
+        <br />
+        <select onChange={handleSelect}>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
         <br />
         <input type="submit" value="Register" />
       </form>

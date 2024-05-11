@@ -24,7 +24,7 @@ function Login() {
     if (userData.email && userData.password) {
       // await calling backend one server to another server request, backend validation, data to store mongodb
       try {
-        const response = await api.post("/login", { userData });
+        const response = await api.post("/api/v1/user/login", { userData });
         // const response = { data: { success: true, message: "Login Sucessfull.", token: "abcdefghi", userData: { name: 'Awdiz', email: "awdiz@gmail.com" } } }
         // return res.status(201).json({ success: true, message: "Registeration Completed." })
         if (response.data.success) {

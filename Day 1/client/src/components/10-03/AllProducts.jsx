@@ -10,7 +10,7 @@ const AllProducts = (props) => {
   useEffect(() => {
     async function getProducts() {
       try {
-        const response = await api.get("/get-products");
+        const response = await api.get("/api/v1/product/get-products");
         if (response?.data?.success) {
           setAllProducts(response.data.products);
         }

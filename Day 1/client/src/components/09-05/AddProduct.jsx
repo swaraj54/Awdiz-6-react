@@ -25,7 +25,7 @@ const AddProduct = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await api.post("/add-product", {
+      const response = await api.post("/api/v1/product/add-product", {
         productData,
         userId: "66372bd16a12516b2d9c5142",
       });
