@@ -26,6 +26,9 @@ import UseCallback from "./components/23-03-/UseCallback";
 import Navbar2 from "./components/Navbar2";
 import PropFilter from "./components/PropFilter";
 import AddProduct from "./components/09-05/AddProduct";
+import Seller from "./components/Project/Seller";
+import Buyer from "./components/Project/Buyer";
+import YourProduct from "./components/Project/YourProduct";
 
 function App() {
   const [allProducts, setAllProducts] = useState([]); // to just get products 20 -> 20
@@ -97,24 +100,16 @@ function App() {
       {/* <Navbar /> */}
       <Navbar2 search={search} handleChange={handleChange} />
       <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/effect-1" element={<EffectOne />} />
         <Route path="/effect-2" element={<EffectTwo />} />
         <Route path="/effect-3" element={<EffectThree />} />
         <Route path="/effect-4" element={<EffectFour />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/use-reducer" element={<UseReducer />} />
         <Route
           path="/props-drilling"
           element={<PropsDrilling counter={counter} students={students} />}
-        />
-        <Route
-          path="/all-products"
-          element={<AllProducts awdiz={products} />}
         />
         <Route path="/fake-all-products" element={<FakeStoreAllProducts />} />
         <Route
@@ -137,7 +132,18 @@ function App() {
             />
           }
         />
-        <Route path='/add-product' element={<AddProduct />} />
+
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/seller" element={<Seller />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route
+          path="/all-products"
+          element={<AllProducts awdiz={products} />}
+        />
+        <Route path="/your-product" element={<YourProduct />} />
         {/* create a new route to fetch all product  */}
         {/* create a new route to fetch all product related to current user  */}
       </Routes>

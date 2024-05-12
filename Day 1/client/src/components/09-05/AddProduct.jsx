@@ -4,6 +4,7 @@ import AuthDirection from "../redirections/AuthDirection";
 import axios from "axios";
 import toast from "react-hot-toast";
 import api from "../../AxiosConfig";
+import SellerProtected from "../redirections/SellerProtected";
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -27,7 +28,7 @@ const AddProduct = () => {
       event.preventDefault();
       const response = await api.post("/api/v1/product/add-product", {
         productData,
-        userId: "66372bd16a12516b2d9c5142",
+        userId: state.user._id,
       });
       if (response.data.success) {
         toast.success(response.data.message);
@@ -37,7 +38,7 @@ const AddProduct = () => {
     }
   };
   return (
-    <div>
+    <SellerProtected>
       <h1>AddProduct</h1>
       <form onSubmit={handleSubmit}>
         <label>Product Name</label>
@@ -63,7 +64,7 @@ const AddProduct = () => {
         <input type="submit" />
         <br />
       </form>
-    </div>
+    </SellerProtected>
   );
 };
 

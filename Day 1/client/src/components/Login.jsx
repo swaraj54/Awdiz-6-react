@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
@@ -6,19 +6,14 @@ import axios from "axios";
 import api from "../AxiosConfig";
 
 function Login() {
-  const { LOGIN } = useContext(AuthContext);
-
+  const { LOGIN, state } = useContext(AuthContext);
   const router = useNavigate();
-
   const [userData, setUserData] = useState({ email: "", password: "" });
-  // userData.name
-  // userData[name]
 
   function handleChange(event) {
     // console.log(event.target.value, event.target.name)
     setUserData({ ...userData, [event.target.name]: event.target.value });
   }
-
   async function handleSubmit(event) {
     event.preventDefault();
     if (userData.email && userData.password) {
@@ -42,6 +37,17 @@ function Login() {
       alert("All fields are required.");
     }
   }
+
+  useEffect(() => {
+    console.log(state);
+    if (state && state?.user?.role !== undefined) {
+      if (state?.user?.role === "buyer") {
+        router("/");
+      } else {
+        router("/seller");
+      }
+    }
+  }, [state]);
 
   return (
     <div>
@@ -70,6 +76,7 @@ function Login() {
         <br />
         <input type="submit" value="Login" />
       </form>
+      <button onClick={() => router("/register")}>Register ?</button>
     </div>
   );
 }
