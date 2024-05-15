@@ -144,6 +144,7 @@ function App() {
           element={<AllProducts awdiz={products} />}
         />
         <Route path="/your-product" element={<YourProduct />} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
         {/* create a new route to fetch all product  */}
         {/* create a new route to fetch all product related to current user  */}
       </Routes>

@@ -5,9 +5,13 @@ import Navbar from "./global/Navbar";
 
 import "./../styles/Home.css";
 import api from "../AxiosConfig";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const router = useNavigate();
   const [allProducts, setAllProducts] = useState([]);
+  console.log(allProducts, "allProducts");
 
   useEffect(() => {
     async function getProducts() {
@@ -26,6 +30,27 @@ function Home() {
   const { state } = useContext(AuthContext);
   // const { theme } = useContext(ThemeContext)
   console.log(state, "state");
+
+  async function AddToCart(productId) {
+    console.log(state, "state?.user?._id");
+    if (state?.user?._id === undefined) {
+      toast.error("Please login to add products into cart.");
+      router("/login");
+    }
+
+    try {
+      const response = await api.post("/api/v1/user/add-to-cart", {
+        userId: state?.user?._id,
+        productId: productId,
+      });
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     // <div style={{ background: theme === light ? "white" : 'black' }}>
     <div id="body">
@@ -165,6 +190,10 @@ function Home() {
                   <p>Price : {productObj.price}/-</p>
                   <p>Total Quantities : {productObj.quantity}</p>
                   <p>{productObj.tags}</p>
+                  <button onClick={() => AddToCart(productObj?._id)}>
+                    Add to Cart
+                  </button>
+                  <button>Add to Wishlist</button>
                 </div>
               ))}
             </div>

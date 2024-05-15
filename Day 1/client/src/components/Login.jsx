@@ -29,9 +29,12 @@ function Login() {
           toast.success(response.data.message);
           // if conext lasturl if{}    else { '/}
           router("/");
+        } else {
+          toast.error(response.data.message);
         }
       } catch (error) {
-        toast.error(error.response.data.message);
+        console.log(error, "error in login");
+        // toast.error(error?.response?.data?.message);
       }
     } else {
       alert("All fields are required.");
