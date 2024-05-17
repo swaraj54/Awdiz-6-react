@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: "https://awdiz-6-backend.onrender.com/",
   // process.env.ENV === "DEVELOPMENT"
   //   ? "http://localhost:3001"
-  //   : "https://awdiz-6.com",
+  //   : "https://awdiz-6-backend.onrender.com/",
   withCredentials: true,
 });
 
